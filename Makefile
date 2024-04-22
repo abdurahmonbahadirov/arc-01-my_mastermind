@@ -1,11 +1,15 @@
-all: mastermind
-
-mastermind: mastermind.o mastermind.h
-	gcc -Wall -Wextra -Werror -o mastermind mastermind.o
 
 
-
-.PHONY: clean
-
-clean:
-	rm -f mastermind.o mastermind
+CC = gcc 
+CFLAGS = -g -Wall -Wextra -Werror 
+SOURCES = my_mastermind.c 
+TARGET = my_mastermind 
+ 
+ 
+$(TARGET):$(SOURCES) 
+	$(CC) $(CFLAGS) -o $@ $^  
+  
+.PHONY: fclean 
+ 
+fclean: 
+	@rm -r $(TARGET)
